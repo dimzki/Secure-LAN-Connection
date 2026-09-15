@@ -1,0 +1,17 @@
+{
+  "name": "com.dimzki.securelanconnection",
+  "version": "1.0.0",
+  "displayName": "Secure LAN Connection",
+  "description": "A plug-and-play peer-to-peer LAN communicator using multicast UDP discovery and AES-256-CBC encrypted TCP messaging.",
+  "unity": "2021.3",
+  "dependencies": {},
+  "keywords": [
+    "network",
+    "lan",
+    "p2p"
+  ],
+  "author": {
+    "name": "dimzki",
+    "url": "https://github.com/dimzki/Secure-LAN-Connection"
+  }
+}
