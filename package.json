@@ -1,5 +1,5 @@
 {
-  "name": "com.dimzki.securelanconnection",
+  "name": "com.alzaki.securelanconnection",
   "version": "1.0.0",
   "displayName": "Secure LAN Connection",
   "description": "A plug-and-play peer-to-peer LAN communicator using multicast UDP discovery and AES-256-CBC encrypted TCP messaging.",

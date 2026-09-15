@@ -31,7 +31,7 @@ https://github.com/dimzki/Secure-LAN-Connection.git
 Alternatively, you can open your project's `Packages/manifest.json` file and add the following line to your `"dependencies"` block:
 
 ```json
-"com.dimzki.securelanconnection": "https://github.com/dimzki/Secure-LAN-Connection.git"
+"com.alzaki.securelanconnection": "https://github.com/dimzki/Secure-LAN-Connection.git"
 ```
 
 ## Quick Start
