@@ -26,7 +26,8 @@ namespace SecureLanConnection
         {
             get 
             {
-                if (_settings == null || _settings.expectedPeerCount <= 1) return true;
+                if (_settings == null) return false;
+                if (_settings.expectedPeerCount <= 1) return true;
                 return _peers.Count >= (_settings.expectedPeerCount - 1);
             }
         }
@@ -57,10 +58,17 @@ namespace SecureLanConnection
             }
             Instance = this;
             _instanceId = Guid.NewGuid().ToString("N");
+            
+            _settings = Resources.Load<SecureLanSettings>("SecureLanSettings");
+            if (_settings == null)
+            {
+                Debug.LogError("[SecureLanPeer] Could not find SecureLanSettings in Resources!");
+            }
         }
 
         private void DeriveKeys()
         {
+            if (_settings == null) return;
             using var sha = SHA256.Create();
             _encKey = sha.ComputeHash(Encoding.UTF8.GetBytes("ENC:" + _settings.sharedSecret));
             _macKey = sha.ComputeHash(Encoding.UTF8.GetBytes("MAC:" + _settings.sharedSecret));
@@ -68,12 +76,7 @@ namespace SecureLanConnection
 
         private async void Start()
         {
-            _settings = Resources.Load<SecureLanSettings>("SecureLanSettings");
-            if (_settings == null)
-            {
-                Debug.LogError("[SecureLanPeer] Could not find SecureLanSettings in Resources!");
-                return;
-            }
+            if (_settings == null) return;
 
             DeriveKeys();
 
